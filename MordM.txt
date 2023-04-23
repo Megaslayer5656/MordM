@@ -1,0 +1,12 @@
+"MordM"
+{
+	"base"		"base"
+	"title"		"MordM"
+	"maps"		"^mm_"
+	"category"	"pvp"
+	"menusystem"	"1"
+	"workshopid"	""
+
+	"settings"
+	}
+}
