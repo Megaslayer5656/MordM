@@ -2,7 +2,7 @@
 {
 	"base"		"base"
 	"title"		"MordM"
-	"maps"		"^mm_"
+	"maps"		"^md_"
 	"category"	"pvp"
 	"menusystem"	"1"
 	"workshopid"	""
