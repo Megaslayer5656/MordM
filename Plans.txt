@@ -2,6 +2,7 @@ PLANS:
 
 Major/Overall Plans:
 Gonna be a pvp gamemode with different gamemodes (FFA, TDM, CTF, KOTH, "Gun" Game, Juggernaut, ECT.)
+Also include push based team modes (Frontline, Push)
 Unlockable weapons of different types (Spears, Bludgeons, Blades, Staves, and Throwables)
 Going to have unlockable cosmetics and playermodels
 Proxy Chat (Bc it makes most games better)
@@ -11,6 +12,7 @@ Gonna have a decent amount of maps, some made by me
 Minor Plans:
 Stats page
 Leveling system with emblems for each level (Kinda like cod)
+Possibly a perks system
 
 Misc:
 Private playtest starting soon
