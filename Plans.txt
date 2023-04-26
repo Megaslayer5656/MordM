@@ -7,12 +7,22 @@ Unlockable weapons of different types (Spears, Bludgeons, Blades, Staves, and Th
 Going to have unlockable cosmetics and playermodels
 Proxy Chat (Bc it makes most games better)
 Gonna have a decent amount of maps, some made by me
+Gonna make a pause menu 
 
+Shop system:
+all weapons besides base weapons will be in the shop
+there will also be cosmetics in said shop
+some cosmetics will be given based on kills or matches won, not currency
+all weapons will be currency based, and all will be low priced (although some higher than others) to keep the game balanced
+Will have one free starter weapon for each type of weapon
+leveling system will be added, each level giving 1000 of the currency
+no weapon will be more expensive than 1000 of said currency (to keep balance)
 
 Minor Plans:
 Stats page
 Leveling system with emblems for each level (Kinda like cod)
 Possibly a perks system
+make healthbar and scoreboard look better
 
 Misc:
 Private playtest starting soon
