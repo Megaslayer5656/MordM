@@ -40,7 +40,7 @@ local function ToggleScoreBoard(Toggle)
             draw.SimpleText(ping, "MordM_sb_14", w / 1.1, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping number to Scoreboard
             draw.SimpleText("Ping:", "MordM_sb_14", w/1.12, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping text to Scoreboard
 	    draw.SimpleText(deaths, "MordM_sb_14", w / 1.2, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death number to Scoreboard
-            draw.SimpleText("Deaths:", "MordM_sb_14", w/ 1.23, h / 4.3, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping number to Scoreboard
+            draw.SimpleText("Deaths:", "MordM_sb_14", w/ 1.23, h / 4.3, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death text to Scoreboard
         end
         end
         ypos = ypos + plypannel:GetTall() * 1.1 -- spacing between player info
