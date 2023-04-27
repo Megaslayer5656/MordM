@@ -32,6 +32,7 @@ local function ToggleScoreBoard(Toggle)
         local name = v:Name()
         local ping = v:Ping()
 	local deaths = v:Deaths()
+	local kills = v:Frags()
         plypannel.Paint = function (self, w, h)
             if IsValid(v) then -- checks if the player is still in the server, if not, it doesn't draw the info for the player
             surface.SetDrawColor(0, 0, 0, 200)
@@ -41,6 +42,8 @@ local function ToggleScoreBoard(Toggle)
             draw.SimpleText("Ping:", "MordM_sb_14", w/1.12, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping text to Scoreboard
 	    draw.SimpleText(deaths, "MordM_sb_14", w / 1.2, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death number to Scoreboard
             draw.SimpleText("Deaths:", "MordM_sb_14", w/ 1.23, h / 4.3, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death text to Scoreboard
+	    draw.SimpleText(kills, "MordM_sb_14", w / 1.37, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds kill number to Scoreboard
+            draw.SimpleText("Kills:", "MordM_sb_14", w / 1.4, h / 4.3, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) --adds kill text to Scoreboard
         end
         end
         ypos = ypos + plypannel:GetTall() * 1.1 -- spacing between player info
