@@ -5,7 +5,6 @@ surface.CreateFont( "MordM_sb_14", {
 	blursize = 0,
 	scanlines = 0,
 	antialias = true,
-	
 } )
 -- This adds custom font
 local function ToggleScoreBoard(Toggle)
@@ -31,33 +30,35 @@ local function ToggleScoreBoard(Toggle)
         plypannel:SetSize(MordMscr:GetWide(), MordMscr:GetTall() * .05)
         local name = v:Name()
         local ping = v:Ping()
-	local deaths = v:Deaths()
-	local kills = v:Frags()
+        local deaths = v:Deaths()
+        local kills = v:Frags()
+        local kd = kills / deaths
+        if kills >= 0 and deaths == 0 then
+            kd = 0 + kills                 -- fixes ind/nan in the scoreboard if kd is 0/0 (which isn't a number, so it displayed the word nan). Basically just fixed scoreboard kd display
+        end
         plypannel.Paint = function (self, w, h)
             if IsValid(v) then -- checks if the player is still in the server, if not, it doesn't draw the info for the player
             surface.SetDrawColor(0, 0, 0, 200)
             surface.DrawRect(0,0,w,h)
-            draw.SimpleText(name, "MordM_sb_14", w / 2, h / 2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds player name to Scoreboard
+            draw.SimpleText(name, "MordM_sb_14", w / 2, h / 2.2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds player name to Scoreboard
             draw.SimpleText(ping, "MordM_sb_14", w / 1.1, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping number to Scoreboard
-            draw.SimpleText("Ping:", "MordM_sb_14", w/1.12, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping text to Scoreboard
-	    draw.SimpleText(deaths, "MordM_sb_14", w / 1.2, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death number to Scoreboard
+            draw.SimpleText("Ping:", "MordM_sb_14", w/ 1.13, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping text to Scoreboard
+            draw.SimpleText(deaths, "MordM_sb_14", w / 1.2, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death number to Scoreboard
             draw.SimpleText("Deaths:", "MordM_sb_14", w/ 1.23, h / 4.3, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death text to Scoreboard
-	    draw.SimpleText(kills, "MordM_sb_14", w / 1.37, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds kill number to Scoreboard
-            draw.SimpleText("Kills:", "MordM_sb_14", w / 1.4, h / 4.3, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) --adds kill text to Scoreboard
+            draw.SimpleText(kills, "MordM_sb_14", w / 1.36, h / 4.2, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds kill number to Scoreboard
+            draw.SimpleText("Kills:", "MordM_sb_14", w / 1.39, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds kill text to Scoreboard
+            draw.SimpleText(kd, "MordM_sb_14", w / 1.5, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds k/d number to Scoreboard
+            draw.SimpleText("K/D:", "MordM_sb_14", w / 1.54, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds k/d text to Scoreboard
         end
-        end
+    end
         ypos = ypos + plypannel:GetTall() * 1.1 -- spacing between player info
     end
     else
-         
         if IsValid(MordMscr) then
             MordMscr:Remove() -- removes Scoreboard when you let go of tab/your Scoreboard key
         end
     end
 end
-
-
-
 hook.Add("ScoreboardShow", "MordMScrS", function()
     ToggleScoreBoard(true)
     return false
