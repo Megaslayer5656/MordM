@@ -63,7 +63,6 @@ hook.Add("ScoreboardShow", "MordMScrS", function()
     ToggleScoreBoard(true)
     return false
 end)
-
 hook.Add("ScoreboardHide", "MordMScrH", function ()
     ToggleScoreBoard(false)
 end)

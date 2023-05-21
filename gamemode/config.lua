@@ -1,4 +1,4 @@
--- Weapons
+-- Visual of weapons for me to see lmao (doens't actually do much)
 Weapons = {}
 Weapons [1] = {"meleearts_bludgeon_bat", "Baseball Bat", "Bludgeon"}
 Weapons [2] = {"meleearts_axe_battleaxe", "Battle Axe", "Axe"}
@@ -40,3 +40,10 @@ Weapons [37] = {"meleearts_axe_trenchaxe", "Trench Axe", "Axe"}
 Weapons [38] = {"meleearts_spear_trident", "Trident", "Spear"}
 Weapons [39] = {"meleearts_spear_basic", "Yari", "Spear"}
 Weapons [40] = {"meleearts_blade_greatsword", "Zweihander", "Blade"}
+-- this one does stuff I think
+Weapon = {"meleearts_bludgeon_bat", "meleearts_axe_battleaxe", "meleearts_spear_bayonetrifle", "meleearts_throwable_blade", "meleearts_bludgeon_boommic", "meleearts_throwable_bottle",
+"meleearts_blade_throwingknife",  "meleearts_staff_bamboo", "meleearts_blade_sword", "meleearts_axe_crafted", "meleearts_bludgeon_crowbar", "meleearts_axe_fireaxe", "meleearts_throwable_firecracker", 
+"meleearts_bludgeon_fists", "meleearts_bludgeon_guitar", "meleearts_spear_harpoon", "meleearts_axe_hatchet", "meleearts_axe_iceaxe", "meleearts_blade_illumina", "meleearts_staff_iron", 
+"meleearts_blade_kabarknife", "meleearts_blade_katana", "meleearts_bludgeon_pipe", "meleearts_staff_nunchucks", "meleearts_blade_pencil", "meleearts_staff_poolcue", "meleearts_blade_shiv",
+"meleearts_throwable_charge", "meleearts_spear_pushbroom", "meleearts_bludgeon_roadsign", "meleearts_spear_shovel", "meleearts_blade_sickle", "meleearts_bludgeon_sledgehammer", 
+"meleearts_spear_spartan", "meleearts_bludgeon_stunstick", "meleearts_staff_shock", "meleearts_axe_trenchaxe", "meleearts_spear_trident", "meleearts_spear_basic", "meleearts_blade_greatsword"}

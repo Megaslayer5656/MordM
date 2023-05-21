@@ -1,12 +1,16 @@
 GM.Name = "MordM"
-GM.Author = "Megaslayer"
+GM.Author = "Megaslayer_"
 GM.Email = "N/A"
 GM.Website = "N/A"
-
 function GM:Initialize()
-    -- Do stuff
+    
 end
-
 function GM:PlayerNoClip()
     return false
+end
+function GM:PlayerSpawn(ply)
+    local randwep = math.random(1-40)
+    Entity(1):Give(Weapon[math.random(1,40)])
+    ply:SetModel("models/player/kleiner.mdl")
+    ply:SetupHands()
 end
