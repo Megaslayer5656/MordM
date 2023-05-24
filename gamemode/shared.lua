@@ -10,7 +10,7 @@ function GM:PlayerNoClip()
 end
 function GM:PlayerSpawn(ply)
     local randwep = math.random(1,40)
-    Entity(1):Give(Weapon[randwep])
+    ply:Give(Weapon[randwep])
     ply:SetModel("models/player/kleiner.mdl")
     ply:SetupHands()
 end

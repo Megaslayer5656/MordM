@@ -1,5 +1,4 @@
-function Fontstuff()
-    surface.CreateFont("WDFont", {
+ surface.CreateFont("WDFont", {
     font = "Sylfaen", --  Use the font-name which is shown to you by your operating system Font Viewer, not the file name
 	size = 75,
 	weight = 500,
@@ -7,7 +6,6 @@ function Fontstuff()
 	scanlines = 0,
 	antialias = true,
 })
-end
 hook.Add("HUDPaint", "MordMHUD", function ()
     local scrw,scrh = ScrW(), ScrH()
     local ply = LocalPlayer()
