@@ -20,7 +20,11 @@ local function ToggleScoreBoard(Toggle)
         MordMscr.Paint = function (self,w,h)    
             surface.SetDrawColor(0, 0, 0, 200)     
             surface.DrawRect(0, 0, w, h)
-            draw.SimpleText("Scoreboard", "MordM_sb_14", w / 2, h * .02, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+            draw.SimpleText("Scoreboard", "MordM_sb_14", w / 2, h * .02, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds "scoreboard" text to scoreboard
+            draw.SimpleText("Deaths", "MordM_sb_14", w/ 1.235, h * .01, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death text to Scoreboard
+            draw.SimpleText("Ping", "MordM_sb_14", w/ 1.14, h * .01, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping text to Scoreboard
+            draw.SimpleText("Kills", "MordM_sb_14", w / 1.38, h * .01, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds kill text to Scoreboard
+            draw.SimpleText("K/D", "MordM_sb_14", w / 1.5, h * .01, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds k/d text to Scoreboard
         end -- Makes basic Scoreboard
         local ypos = MordMscr:GetTall() * .04
         for k, v in pairs(player.GetAll()) do
@@ -33,6 +37,7 @@ local function ToggleScoreBoard(Toggle)
         local deaths = v:Deaths()
         local kills = v:Frags()
         local kd = kills / deaths
+        local mult = 10^(dp or 1)
         if kills >= 0 and deaths == 0 then
             kd = 0 + kills                 -- fixes ind/nan in the scoreboard if kd is 0/0 (which isn't a number, so it displayed the word nan). Basically just fixed scoreboard kd display
         end
@@ -41,14 +46,10 @@ local function ToggleScoreBoard(Toggle)
             surface.SetDrawColor(0, 0, 0, 200)
             surface.DrawRect(0,0,w,h)
             draw.SimpleText(name, "MordM_sb_14", w / 2, h / 2.2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds player name to Scoreboard
-            draw.SimpleText(ping, "MordM_sb_14", w / 1.1, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping number to Scoreboard
-            draw.SimpleText("Ping:", "MordM_sb_14", w/ 1.13, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds ping text to Scoreboard
-            draw.SimpleText(deaths, "MordM_sb_14", w / 1.2, h / 4, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death number to Scoreboard
-            draw.SimpleText("Deaths:", "MordM_sb_14", w/ 1.23, h / 4.3, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death text to Scoreboard
-            draw.SimpleText(kills, "MordM_sb_14", w / 1.36, h / 4.2, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds kill number to Scoreboard
-            draw.SimpleText("Kills:", "MordM_sb_14", w / 1.39, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds kill text to Scoreboard
-            draw.SimpleText(kd, "MordM_sb_14", w / 1.5, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds k/d number to Scoreboard
-            draw.SimpleText("K/D:", "MordM_sb_14", w / 1.54, h / 4.5, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds k/d text to Scoreboard
+            draw.SimpleText(ping, "MordM_sb_14", w / 1.165, h / 2.2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds ping number to Scoreboard
+            draw.SimpleText(deaths, "MordM_sb_14", w / 1.28, h / 2.2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds death number to Scoreboard
+            draw.SimpleText(kills, "MordM_sb_14", w / 1.41, h / 2.2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds kill number to Scoreboard
+            draw.SimpleText(math.floor(kd * mult + 0.5)/mult, "MordM_sb_14", w / 1.54, h / 2.2, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds k/d number (with rounding) to Scoreboard
         end
     end
         ypos = ypos + plypannel:GetTall() * 1.1 -- spacing between player info
