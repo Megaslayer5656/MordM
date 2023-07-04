@@ -13,4 +13,5 @@ function GM:PlayerSpawn(ply)
     ply:Give(Weapon[randwep])
     ply:SetModel("models/player/kleiner.mdl")
     ply:SetupHands()
+    print("Weapon Given (spawned)")
 end

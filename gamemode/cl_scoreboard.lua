@@ -1,4 +1,4 @@
-surface.CreateFont( "MordM_sb_14", {
+    surface.CreateFont( "MordM_sb_14", {
 	font = "Trebuchet MS", --  Use the font-name which is shown to you by your operating system Font Viewer, not the file name
 	size = 20,
 	weight = 500,
@@ -12,7 +12,7 @@ local function ToggleScoreBoard(Toggle)
         local scrw, scrh = ScrW(), ScrH()
         MordMscr = vgui.Create("DFrame")
         MordMscr:SetTitle("") -- prob unneeded code but i'm too scared to remove it lol
-        MordMscr:SetSize(scrw * .3, scrh * .6)
+        MordMscr:SetSize(scrw * .3, scrh * .6)  
         MordMscr:Center()
         MordMscr:SetDraggable(false)
         MordMscr:ShowCloseButton(false)
