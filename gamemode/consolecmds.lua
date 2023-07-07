@@ -12,4 +12,7 @@ if SERVER then
 end
 if CLIENT then
     RunConsoleCommand("cl_drawhud", 0) -- Disabled to allow custom hud
+    concommand.Add("Mainmenu", Mainmenuopen)
+    concommand.Add("WepFontApply", WepFontMaker)
+    concommand.Add("SbFontApply", SbFontMaker)
 end

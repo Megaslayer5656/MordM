@@ -8,27 +8,16 @@ end
 function GM:PlayerNoClip()
     return false
 end
-function GM:PlayerSpawn(ply)
+function GM:PlayerSpawn(ply)-- Sets up players on spawn. The console commands are to apply settings changed in the settings menu
     local randwep = math.random(1,40)
     ply:Give(Weapon[randwep])
     ply:SetModel("models/player/kleiner.mdl")
     ply:SetupHands()
     print("Weapon Given (spawned)")
+    RunConsoleCommand("WepFontApply")
+    RunConsoleCommand("SbFontApply")
 end
-function Mainmenuspec(ply)
-    ply:Spectate(6)
+if CLIENT then-- Adding Convars
+    CreateClientConVar("Wepfontsize", 75, true, false, "Changes Weapon Text Font Size")
+    CreateClientConVar("Wepfontcolor", 255, true, false, "Changes Weapon Text Color (Not working atm)")
 end
-function Unspec(ply)
-    ply:UnSpectate()
-end
-function Remitems(ply)
-    ply:RemoveAllItems()
-end
-function ItemMenuClose(ply)
-    local randwep = math.random(1,40)
-    ply:Give(Weapon[randwep])
-end
-concommand.Add("Mainmenuspec", Mainmenuspec)-- IMPORTANT: These commands for the menu are just for current testing, and are not going to be a thing later
-concommand.Add("Unspec", Unspec)
-concommand.Add("Remitems", Remitems)
-concommand.Add("Itemmenuclose", ItemMenuClose)

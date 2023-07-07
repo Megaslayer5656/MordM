@@ -1,3 +1,4 @@
+function SbFontMaker()
     surface.CreateFont( "MordM_sb_14", {
 	font = "Trebuchet MS", --  Use the font-name which is shown to you by your operating system Font Viewer, not the file name
 	size = 20,
@@ -6,6 +7,7 @@
 	scanlines = 0,
 	antialias = true,
 } )
+end
 -- This adds custom font
 local function ToggleScoreBoard(Toggle)
     if Toggle then

@@ -1,11 +1,14 @@
- surface.CreateFont("WDFont", {
-    font = "Sylfaen", --  Use the font-name which is shown to you by your operating system Font Viewer, not the file name
-	size = 75,
-	weight = 500,
-	blursize = 0,
-	scanlines = 0,
-	antialias = true,
-})
+function WepFontMaker()
+    surface.CreateFont ("WDFont", {
+        font = "Sylfaen", --  Use the font-name which is shown to you by your operating system Font Viewer, not the file name
+        size = GetConVar("Wepfontsize"):GetInt(),
+        weight = 500,
+        blursize = 0,
+        scanlines = 0,
+        antialias = true,
+    })
+    
+end
 hook.Add("HUDPaint", "MordMHUD", function ()
     local scrw,scrh = ScrW(), ScrH()
     local ply = LocalPlayer()
@@ -320,3 +323,4 @@ hook.Add("HUDPaint", "MordMWHUD40", function (ply)
         draw.SimpleText(ply:GetActiveWeapon():GetPrintName(), "WDFont", scrw / 1.2, scrh / 1.1, Color(255,0,0), TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT)
     end
 end)
+Red = 255, 0, 0

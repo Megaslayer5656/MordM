@@ -1,7 +1,6 @@
 function Mainmenuopen()
     if CLIENT then
-        RunConsoleCommand("Mainmenuspec")
-        RunConsoleCommand("Remitems")
+        RunConsoleCommand("Kill")
         end
     local scrw, scrh = ScrW(), ScrH()
     Mainmenu = vgui.Create("DFrame")
@@ -23,10 +22,6 @@ function Mainmenuopen()
     Menuclose:SetPos(scrw - scrw/1.8, scrh - scrh/4)
     function Menuclose:DoClick()
         Mainmenu:Close()
-        if CLIENT then
-            RunConsoleCommand("Unspec")
-            RunConsoleCommand("Kill")
-        end
         end
     Settingsbutton = vgui.Create("DButton", Mainmenu)
     Settingsbutton:SetText("Settings")
@@ -46,7 +41,15 @@ function Mainmenuopen()
     Settingsmenu.Paint = function (me,w,h)
         surface.SetDrawColor(0,0,0,200)
         surface.DrawRect(0,0,w,h)
+        draw.SimpleText("Weapon Font Size", "DermaLarge", scrw - scrw/1, scrh - scrh/3.4, Color(255,255,255,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT)
         end
+        Wepfontsizeselector = vgui.Create("DNumSlider", Settingsmenu)
+        Wepfontsizeselector:SetMin(1)
+        Wepfontsizeselector:SetMax(200)
+        Wepfontsizeselector:SetDefaultValue(75)
+        Wepfontsizeselector:SetConVar("Wepfontsize")
+        Wepfontsizeselector:SetSize(scrw *.3, scrh * .1)
+        Wepfontsizeselector:SetPos(scrw - scrw/1, scrh - scrh/3)
         SettingsMenuClose = vgui.Create("DButton", Settingsmenu)
         SettingsMenuClose:SetText("Close")
         SettingsMenuClose:Center()
@@ -93,4 +96,6 @@ function Mainmenuopen()
             end
 end
 end
-concommand.Add("Mainmenu", Mainmenuopen)
+concommand.Add("Mainmenu", Mainmenuopen) -- commands stop working when in consolecmds.lua so I'm putting them here too
+concommand.Add("WepFontApply", WepFontMaker)
+concommand.Add("SbFontApply", SbFontMaker)
