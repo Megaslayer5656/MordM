@@ -10,10 +10,14 @@ function Mainmenuopen()
     Mainmenu:MakePopup()
     Mainmenu:SetDraggable(false)
     Mainmenu:ShowCloseButton(false)
+    Mainmenu:SetScreenLock(true)
     Mainmenu.Paint = function (me,w,h)
         surface.SetDrawColor(0,0,0,200)
         surface.DrawRect(0,0,w,h)
     end
+    MMBackround = vgui.Create("DImage", Mainmenu)
+    MMBackround:SetImage("MordM/Kirby")
+    MMBackround:SetSize(scrw, scrh)
     Menuclose = vgui.Create("DButton", Mainmenu)
     Menuclose:SetText("Close")
     Menuclose:Center()
@@ -43,6 +47,11 @@ function Mainmenuopen()
         surface.DrawRect(0,0,w,h)
         draw.SimpleText("Weapon Font Size", "DermaLarge", scrw - scrw/1, scrh - scrh/3.4, Color(255,255,255,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT)
         end
+        ColinButton = vgui.Create("DButton", Settingsmenu)
+        ColinButton:SetMaterial("MordM/Colin")
+        ColinButton:SetText("Colin")
+        ColinButton:SetSize(scrw *.05, scrh *.05)
+        ColinButton:SetPos(scrw - scrw/2, scrh - scrh/3)
         Wepfontsizeselector = vgui.Create("DNumSlider", Settingsmenu)
         Wepfontsizeselector:SetMin(1)
         Wepfontsizeselector:SetMax(200)
@@ -56,6 +65,15 @@ function Mainmenuopen()
         SettingsMenuClose:SetMouseInputEnabled(true)
         SettingsMenuClose:SetSize(scrw * .1, scrh * .1)
         SettingsMenuClose:SetPos(scrw - scrw/1.8, scrh - scrh/4)
+        function ColinButton:DoClick()
+            if ColinV:GetBool() then
+                RunConsoleCommand("Colin")
+                ColinV:SetBool(false)
+            else
+            ColinV:SetBool(true)
+            RunConsoleCommand("Colin")
+        end
+    end
         function SettingsMenuClose:DoClick()
             Settingsmenu:Close()
             if CLIENT then
@@ -129,13 +147,15 @@ end
         Statsmenuclose:SetSize(scrw * .1, scrh * .1)
         Statsmenuclose:SetPos(scrw - scrw/1.8, scrh - scrh/4)
         function Statsmenuclose:DoClick()
+            hook.Remove("HUDPaint", "Leaderboard")
             Statsmenu:Close()
             if CLIENT then
                 RunConsoleCommand("Mainmenu")
             end
             end
             end
-end
+    end
+
 concommand.Add("Mainmenu", Mainmenuopen) -- commands stop working when in consolecmds.lua so I'm putting them here too
 concommand.Add("WepFontApply", WepFontMaker)
 concommand.Add("SbFontApply", SbFontMaker)

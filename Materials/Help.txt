@@ -1,0 +1,1 @@
+Drop The MordM Folder In Your Gmod Materials Folder (GarrysMod\garrysmod\materials)

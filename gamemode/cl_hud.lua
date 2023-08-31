@@ -323,3 +323,21 @@ hook.Add("HUDPaint", "MordMWHUD40", function (ply)
         draw.SimpleText(ply:GetActiveWeapon():GetPrintName(), "WDFont", scrw / 1.2, scrh / 1.1, Color(255,0,0), TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT)
     end
 end)
+ColinV = CreateClientConVar("ColinVar", "0", false, false)
+function Colin()
+    print(ColinV:GetBool())
+    if ColinV:GetBool() then
+    local Scrw,Scrh = ScrW(), ScrH()
+    ColinPanel = vgui.Create("DFrame")
+    ColinPanel:SetTitle("")
+    ColinPanel:SetDraggable(false)
+    ColinPanel:ShowCloseButton(false)
+    ColinPanel:SetSize (Scrw / 4, Scrh / 4)
+    Colin = vgui.Create("DImage", ColinPanel)
+    Colin:SetImage("MordM/Colin")
+    Colin:SetSize (Scrw / 4, Scrh / 4)
+    else
+        ColinPanel:Close()
+end
+end
+concommand.Add("Colin", Colin)
