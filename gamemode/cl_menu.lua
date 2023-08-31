@@ -81,6 +81,14 @@ function Mainmenuopen()
         Customizationmenu.Paint = function (me,w,h)
         surface.SetDrawColor(0,0,0,200)
         surface.DrawRect(0,0,w,h)
+        draw.SimpleText("Red Blood", "DermaLarge", scrw - scrw/1.03, scrh - scrh/2.93, Color(255,255,255,255), TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT)
+    end
+    Redbloodcheck = vgui.Create("DCheckBox", Customizationmenu) -- I don't think this works yet but I'll make it work later
+    Redbloodcheck:SetSize(scrw *.01, scrh * .01)
+    Redbloodcheck:SetPos(scrw - scrw/1.1, scrh - scrh/3)
+    if Redbloodcheck:GetChecked() == true then
+            Player:SetBloodColor(0)
+    else
     end
     Customizationmenuclose = vgui.Create("DButton", Customizationmenu)
     Customizationmenuclose:SetText("Close")
@@ -95,6 +103,38 @@ function Mainmenuopen()
             end
             end
 end
+    Statsbutton = vgui.Create("DButton", Mainmenu)
+    Statsbutton:SetText("Stats")
+    Statsbutton:Center()
+    Statsbutton:SetMouseInputEnabled(true)
+    Statsbutton:SetSize(scrw *.1, scrh *.1)
+    Statsbutton:SetPos(scrw - scrw/1.8, scrh - scrh/1.75)
+    function Statsbutton:DoClick()
+        Mainmenu:Close()
+        Statsmenu = vgui.Create("DFrame")
+        Statsmenu:SetSize(scrw, scrh)
+        Statsmenu:Center()
+        Statsmenu:SetTitle("")
+        Statsmenu:MakePopup()
+        Statsmenu:SetDraggable(false)
+        Statsmenu:ShowCloseButton(false)
+        Statsmenu.Paint = function (me,w,h)
+        surface.SetDrawColor(0,0,0,200)
+        surface.DrawRect(0,0,w,h)
+        end
+        Statsmenuclose = vgui.Create("DButton", Statsmenu)
+        Statsmenuclose:SetText("Close")
+        Statsmenuclose:Center()
+        Statsmenuclose:SetMouseInputEnabled(true)
+        Statsmenuclose:SetSize(scrw * .1, scrh * .1)
+        Statsmenuclose:SetPos(scrw - scrw/1.8, scrh - scrh/4)
+        function Statsmenuclose:DoClick()
+            Statsmenu:Close()
+            if CLIENT then
+                RunConsoleCommand("Mainmenu")
+            end
+            end
+            end
 end
 concommand.Add("Mainmenu", Mainmenuopen) -- commands stop working when in consolecmds.lua so I'm putting them here too
 concommand.Add("WepFontApply", WepFontMaker)

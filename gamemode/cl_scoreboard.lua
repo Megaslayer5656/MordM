@@ -19,8 +19,8 @@ local function ToggleScoreBoard(Toggle)
         MordMscr:SetDraggable(false)
         MordMscr:ShowCloseButton(false)
         MordMscr:SetPos(scrw * .34555, scrh * .05)
-        MordMscr.Paint = function (self,w,h)    
-            surface.SetDrawColor(0, 0, 0, 200)     
+        MordMscr.Paint = function (self,w,h)
+            surface.SetDrawColor(0, 0, 0, 200)
             surface.DrawRect(0, 0, w, h)
             draw.SimpleText("Scoreboard", "MordM_sb_14", w / 2, h * .02, color_white, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER) -- adds "scoreboard" text to scoreboard
             draw.SimpleText("Deaths", "MordM_sb_14", w/ 1.235, h * .01, color_white, TEXT_ALIGN_RIGHT, TEXT_ALIGN_RIGHT) -- adds death text to Scoreboard
