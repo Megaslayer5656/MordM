@@ -43,7 +43,7 @@ hook.Add("HUDPaint", "MordMHUD", function ()
     surface.DrawText(hp, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
     end
 end) -- this whole hook just adds the bar healthbar, will be adding other healthbars in the future and they'll be selectable/customizable, just don't know how to do that rn and don't have a ton of time atm
-hook.Add("HUDPaint", "MordMWHUD", function (ply) --all these hooks are prob unneeded, but idk how to do it otherwise, they're here for optimization ingame
+hook.Add("HUDPaint", "MordMWHUD", function (ply)
     local scrw,scrh = ScrW(), ScrH()
     local ply = LocalPlayer()
     if ply:GetActiveWeapon() == NULL then
@@ -57,7 +57,6 @@ function Colin()
     if ColinV:GetBool() then
     local Scrw,Scrh = ScrW(), ScrH()
     ColinPanel = vgui.Create("DFrame")
-    ColinPanel:SetTitle("")
     ColinPanel:SetDraggable(false)
     ColinPanel:ShowCloseButton(false)
     ColinPanel:SetSize (Scrw / 4, Scrh / 4)
